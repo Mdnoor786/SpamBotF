@@ -5,9 +5,7 @@ import os
 import random
 import sys
 
-SMEX_USERS = []
-for x in SUDO_USERS:
-    SMEX_USERS.append(x)
+SMEX_USERS = list(SUDO_USERS)
 
 if UstaD:
     @UstaD.on(events.NewMessage(pattern="/restart"))

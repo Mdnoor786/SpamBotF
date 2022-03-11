@@ -22,337 +22,335 @@ from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from OpUstad import UstaD, UstaD2, UstaD3, UstaD4, UstaD5, UstaD6, UstaD7, UstaD8, UstaD9, UstaD10, SUDO_USERS
 
 
-SMEX_USERS = []
-for x in SUDO_USERS:
-    SMEX_USERS.append(x)
+SMEX_USERS = list(SUDO_USERS)
 
 
 if UstaD:
    @UstaD.on(events.NewMessage(pattern="/spam"))
    async def spam(e):
-       if e.sender_id in SMEX_USERS:
-           if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-               return await e.reply(usage, parse_mode=None, link_preview=None)
-           Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-           smex = await e.get_reply_message()
-           if len(Ustad) == 2:
-               message = str(Ustad[1])
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           elif e.reply_to_msg_id and smex.media:
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               for _ in range(counter):
-                   smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                   await gifspam(e, smex)
-           elif e.reply_to_msg_id and smex.text:
-               message = smex.text
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           else:
-               await e.reply(usage, parse_mode=None, link_preview=None)
+       if e.sender_id not in SMEX_USERS:
+           return
+       if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
+           return await e.reply(usage, parse_mode=None, link_preview=None)
+       Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+       smex = await e.get_reply_message()
+       if len(Ustad) == 2:
+           message = str(Ustad[1])
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       elif e.reply_to_msg_id and smex.media:
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           for _ in range(counter):
+               smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
+               await gifspam(e, smex)
+       elif e.reply_to_msg_id and smex.text:
+           message = smex.text
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       else:
+           await e.reply(usage, parse_mode=None, link_preview=None)
 
-if UstaD:
-   pass
+pass
 
 if UstaD2:
    @UstaD2.on(events.NewMessage(pattern="/spam"))
    async def spam(e):
-       if e.sender_id in SMEX_USERS:
-           if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-               return await e.reply(usage, parse_mode=None, link_preview=None)
-           Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-           smex = await e.get_reply_message()
-           if len(Ustad) == 2:
-               message = str(Ustad[1])
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           elif e.reply_to_msg_id and smex.media:
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               for _ in range(counter):
-                   smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                   await gifspam(e, smex)
-           elif e.reply_to_msg_id and smex.text:
-               message = smex.text
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           else:
-               await e.reply(usage, parse_mode=None, link_preview=None)
+       if e.sender_id not in SMEX_USERS:
+           return
+       if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
+           return await e.reply(usage, parse_mode=None, link_preview=None)
+       Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+       smex = await e.get_reply_message()
+       if len(Ustad) == 2:
+           message = str(Ustad[1])
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       elif e.reply_to_msg_id and smex.media:
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           for _ in range(counter):
+               smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
+               await gifspam(e, smex)
+       elif e.reply_to_msg_id and smex.text:
+           message = smex.text
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       else:
+           await e.reply(usage, parse_mode=None, link_preview=None)
 
-if UstaD2:
-   pass
+pass
 
 if UstaD3:
    @UstaD3.on(events.NewMessage(pattern="/spam"))
    async def spam(e):
-       if e.sender_id in SMEX_USERS:
-           if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-               return await e.reply(usage, parse_mode=None, link_preview=None)
-           Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-           smex = await e.get_reply_message()
-           if len(Ustad) == 2:
-               message = str(Ustad[1])
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           elif e.reply_to_msg_id and smex.media:
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               for _ in range(counter):
-                   smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                   await gifspam(e, smex)
-           elif e.reply_to_msg_id and smex.text:
-               message = smex.text
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           else:
-               await e.reply(usage, parse_mode=None, link_preview=None)
+       if e.sender_id not in SMEX_USERS:
+           return
+       if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
+           return await e.reply(usage, parse_mode=None, link_preview=None)
+       Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+       smex = await e.get_reply_message()
+       if len(Ustad) == 2:
+           message = str(Ustad[1])
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       elif e.reply_to_msg_id and smex.media:
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           for _ in range(counter):
+               smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
+               await gifspam(e, smex)
+       elif e.reply_to_msg_id and smex.text:
+           message = smex.text
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       else:
+           await e.reply(usage, parse_mode=None, link_preview=None)
 
-if UstaD3:
-   pass
+pass
 
 if UstaD4:
    @UstaD4.on(events.NewMessage(pattern="/spam"))
    async def spam(e):
-       if e.sender_id in SMEX_USERS:
-           if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-               return await e.reply(usage, parse_mode=None, link_preview=None)
-           Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-           smex = await e.get_reply_message()
-           if len(Ustad) == 2:
-               message = str(Ustad[1])
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           elif e.reply_to_msg_id and smex.media:
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               for _ in range(counter):
-                   smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                   await gifspam(e, smex)
-           elif e.reply_to_msg_id and smex.text:
-               message = smex.text
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           else:
-               await e.reply(usage, parse_mode=None, link_preview=None)
+       if e.sender_id not in SMEX_USERS:
+           return
+       if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
+           return await e.reply(usage, parse_mode=None, link_preview=None)
+       Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+       smex = await e.get_reply_message()
+       if len(Ustad) == 2:
+           message = str(Ustad[1])
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       elif e.reply_to_msg_id and smex.media:
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           for _ in range(counter):
+               smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
+               await gifspam(e, smex)
+       elif e.reply_to_msg_id and smex.text:
+           message = smex.text
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       else:
+           await e.reply(usage, parse_mode=None, link_preview=None)
 
-if UstaD4:
-   pass
+pass
 
 if UstaD5:
    @UstaD5.on(events.NewMessage(pattern="/spam"))
    async def spam(e):
-       if e.sender_id in SMEX_USERS:
-           if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-               return await e.reply(usage, parse_mode=None, link_preview=None)
-           Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-           smex = await e.get_reply_message()
-           if len(Ustad) == 2:
-               message = str(Ustad[1])
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           elif e.reply_to_msg_id and smex.media:
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               for _ in range(counter):
-                   smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                   await gifspam(e, smex)
-           elif e.reply_to_msg_id and smex.text:
-               message = smex.text
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           else:
-               await e.reply(usage, parse_mode=None, link_preview=None)
+       if e.sender_id not in SMEX_USERS:
+           return
+       if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
+           return await e.reply(usage, parse_mode=None, link_preview=None)
+       Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+       smex = await e.get_reply_message()
+       if len(Ustad) == 2:
+           message = str(Ustad[1])
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       elif e.reply_to_msg_id and smex.media:
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           for _ in range(counter):
+               smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
+               await gifspam(e, smex)
+       elif e.reply_to_msg_id and smex.text:
+           message = smex.text
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       else:
+           await e.reply(usage, parse_mode=None, link_preview=None)
 
-if UstaD5:
-   pass
+pass
 
 if UstaD6:
    @UstaD6.on(events.NewMessage(pattern="/spam"))
    async def spam(e):
-       if e.sender_id in SMEX_USERS:
-           if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-               return await e.reply(usage, parse_mode=None, link_preview=None)
-           Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-           smex = await e.get_reply_message()
-           if len(Ustad) == 2:
-               message = str(Ustad[1])
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           elif e.reply_to_msg_id and smex.media:
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               for _ in range(counter):
-                   smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                   await gifspam(e, smex)
-           elif e.reply_to_msg_id and smex.text:
-               message = smex.text
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           else:
-               await e.reply(usage, parse_mode=None, link_preview=None)
+       if e.sender_id not in SMEX_USERS:
+           return
+       if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
+           return await e.reply(usage, parse_mode=None, link_preview=None)
+       Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+       smex = await e.get_reply_message()
+       if len(Ustad) == 2:
+           message = str(Ustad[1])
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       elif e.reply_to_msg_id and smex.media:
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           for _ in range(counter):
+               smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
+               await gifspam(e, smex)
+       elif e.reply_to_msg_id and smex.text:
+           message = smex.text
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       else:
+           await e.reply(usage, parse_mode=None, link_preview=None)
 
-if UstaD6:
-   pass
+pass
 
 if UstaD7:
    @UstaD7.on(events.NewMessage(pattern="/spam"))
    async def spam(e):
-       if e.sender_id in SMEX_USERS:
-           if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-               return await e.reply(usage, parse_mode=None, link_preview=None)
-           Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-           smex = await e.get_reply_message()
-           if len(Ustad) == 2:
-               message = str(Ustad[1])
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           elif e.reply_to_msg_id and smex.media:
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               for _ in range(counter):
-                   smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                   await gifspam(e, smex)
-           elif e.reply_to_msg_id and smex.text:
-               message = smex.text
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           else:
-               await e.reply(usage, parse_mode=None, link_preview=None)
+       if e.sender_id not in SMEX_USERS:
+           return
+       if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
+           return await e.reply(usage, parse_mode=None, link_preview=None)
+       Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+       smex = await e.get_reply_message()
+       if len(Ustad) == 2:
+           message = str(Ustad[1])
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       elif e.reply_to_msg_id and smex.media:
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           for _ in range(counter):
+               smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
+               await gifspam(e, smex)
+       elif e.reply_to_msg_id and smex.text:
+           message = smex.text
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       else:
+           await e.reply(usage, parse_mode=None, link_preview=None)
 
-if UstaD7:
-   pass
+pass
 
 if UstaD8:
    @UstaD8.on(events.NewMessage(pattern="/spam"))
    async def spam(e):
-       if e.sender_id in SMEX_USERS:
-           if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-               return await e.reply(usage, parse_mode=None, link_preview=None)
-           Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-           smex = await e.get_reply_message()
-           if len(Ustad) == 2:
-               message = str(Ustad[1])
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           elif e.reply_to_msg_id and smex.media:
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               for _ in range(counter):
-                   smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                   await gifspam(e, smex)
-           elif e.reply_to_msg_id and smex.text:
-               message = smex.text
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           else:
-               await e.reply(usage, parse_mode=None, link_preview=None)
+       if e.sender_id not in SMEX_USERS:
+           return
+       if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
+           return await e.reply(usage, parse_mode=None, link_preview=None)
+       Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+       smex = await e.get_reply_message()
+       if len(Ustad) == 2:
+           message = str(Ustad[1])
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       elif e.reply_to_msg_id and smex.media:
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           for _ in range(counter):
+               smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
+               await gifspam(e, smex)
+       elif e.reply_to_msg_id and smex.text:
+           message = smex.text
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       else:
+           await e.reply(usage, parse_mode=None, link_preview=None)
 
-if UstaD8:
-   pass
+pass
 
 if UstaD9:
    @UstaD9.on(events.NewMessage(pattern="/spam"))
    async def spam(e):
-       if e.sender_id in SMEX_USERS:
-           if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-               return await e.reply(usage, parse_mode=None, link_preview=None)
-           Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-           smex = await e.get_reply_message()
-           if len(Ustad) == 2:
-               message = str(Ustad[1])
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           elif e.reply_to_msg_id and smex.media:
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               for _ in range(counter):
-                   smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                   await gifspam(e, smex)
-           elif e.reply_to_msg_id and smex.text:
-               message = smex.text
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           else:
-               await e.reply(usage, parse_mode=None, link_preview=None)
+       if e.sender_id not in SMEX_USERS:
+           return
+       if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
+           return await e.reply(usage, parse_mode=None, link_preview=None)
+       Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+       smex = await e.get_reply_message()
+       if len(Ustad) == 2:
+           message = str(Ustad[1])
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       elif e.reply_to_msg_id and smex.media:
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           for _ in range(counter):
+               smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
+               await gifspam(e, smex)
+       elif e.reply_to_msg_id and smex.text:
+           message = smex.text
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       else:
+           await e.reply(usage, parse_mode=None, link_preview=None)
 
-if UstaD9:
-   pass
+pass
 
 if UstaD10:
    @UstaD10.on(events.NewMessage(pattern="/spam"))
    async def spam(e):
-       if e.sender_id in SMEX_USERS:
-           if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
-               return await e.reply(usage, parse_mode=None, link_preview=None)
-           Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
-           smex = await e.get_reply_message()
-           if len(Ustad) == 2:
-               message = str(Ustad[1])
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           elif e.reply_to_msg_id and smex.media:
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               for _ in range(counter):
-                   smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
-                   await gifspam(e, smex)
-           elif e.reply_to_msg_id and smex.text:
-               message = smex.text
-               counter = int(Ustad[0])
-               if counter > 100:
-                   return await e.reply(error, parse_mode=None, link_preview=None)
-               await asyncio.wait([e.respond(message) for i in range(counter)])
-           else:
-               await e.reply(usage, parse_mode=None, link_preview=None)
+       if e.sender_id not in SMEX_USERS:
+           return
+       if e.text[0].isalpha() and e.text[0] in ("/", "#", "@", "!"):
+           return await e.reply(usage, parse_mode=None, link_preview=None)
+       Ustad = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+       smex = await e.get_reply_message()
+       if len(Ustad) == 2:
+           message = str(Ustad[1])
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       elif e.reply_to_msg_id and smex.media:
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           for _ in range(counter):
+               smex = await e.client.send_file(e.chat_id, smex, caption=smex.text)
+               await gifspam(e, smex)
+       elif e.reply_to_msg_id and smex.text:
+           message = smex.text
+           counter = int(Ustad[0])
+           if counter > 100:
+               return await e.reply(error, parse_mode=None, link_preview=None)
+           await asyncio.wait([e.respond(message) for _ in range(counter)])
+       else:
+           await e.reply(usage, parse_mode=None, link_preview=None)
 
-if UstaD10:
-   pass
+pass
